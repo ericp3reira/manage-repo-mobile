@@ -45,6 +45,16 @@ jest.mock(
   }
 );
 
+describe("Repositories", () => {
+  it("should list all the repositories", async () => {
+    const { getByTestId } = render(<App />);
+
+    await actWait();
+
+    expect(getByTestId(`repository-likes-${repositoryId}`)).toBeTruthy();
+  });
+});
+
 describe("Likes", () => {
   it("should add a like to the like counter of the repository", async () => {
     const { getByTestId } = render(<App />);
